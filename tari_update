@@ -1,4 +1,6 @@
 # обновление 1.7.0.-rc.4
+
+#!/bin/bash
 pkill -f tari_node
 pkill -f tari_miner
 cd /root/tari
