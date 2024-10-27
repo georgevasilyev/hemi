@@ -1,0 +1,15 @@
+# обновление 1.7.0.-rc.4
+pkill -f tari_node
+pkill -f tari_miner
+cd /root/tari
+rm -rf /root/tari/*
+wget https://tari-binaries.s3.amazonaws.com/current/linux/nextnet/tari_suite-1.7.0-rc.4-f0773d3-linux-x86_64.zip
+apt install unzip -y
+unzip tari_suite-1.7.0-rc.4-f0773d3-linux-x86_64.zip
+rm tari_suite-1.7.0-rc.4-f0773d3-linux-x86_64.zip
+screen -dmS tari_node /root/tari/minotari_node
+screen -dmS tari_miner /root/tari/minotari_miner
+sleep 2
+screen -S tari_miner -X stuff "32K4BKW5SFVh3Nd5UR8zZE5YF6vxYyAXakPpGfTF2PsDazRuyeAEPfYS3tDYQPtns1eozyrz1J5Aw4y2B94SR4yR9dK$(printf \\r)"
+sleep 5
+screen -S tari_miner -X stuff "$(printf \\r)"
